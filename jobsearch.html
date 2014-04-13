@@ -1,0 +1,185 @@
+﻿<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta name="description" content="Job Search" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Post a Job</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css" rel="stylesheet" />
+    <link href="jobsearch.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="row">
+                <div class="col-xs-6">
+                    <img src="//placehold.it/350x100/4d4d4d/ffcb33&text=Software+Engineering+Jobs" alt="Software Engineering Jobs" />
+                </div>
+                <div class="col-xs-6 post-steps">
+                    <button class="btn btn-primary create-btn" disabled="disabled">1. Create your Ad</button>
+                    <button class="btn btn-default review-btn" disabled="disabled">2. Review</button>
+                    <button class="btn btn-default review-btn" disabled="disabled">3. Publish</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="post-duration">
+            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id sollicitudin urna fermentum ut fusce luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut.</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12" id="job-posting">
+                <h3>Post Your Job</h3>
+            </div>
+        </div>
+
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="job-title" class="col-xs-2 control-label">Job Title</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="job-title" placeholder="Job Title" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="job-title" class="col-xs-2 control-label">Category</label>
+                <div class="col-xs-10">
+
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="Qae" value="QualityAssuranceEngineer" checked>
+                            Quality Assurance Engineer
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="Pm" value="ProjectManagement">
+                            Project Management
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="dev" value="SoftwareDeveloperEngineer">
+                            Software Developer Engineer
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="designer" value="Designer">
+                            Designer
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="sdet" value="SDET">
+                            SDET
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="exec" value="BusinessExec">
+                            Business/Exec
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="dba" value="DatabaseAdministrator">
+                            Database Administrator
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="other" value="Other">
+                            Other
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="job-title" class="col-xs-2 control-label">Job Description</label>
+                <div class="col-xs-8">
+                    <textarea class="form-control" rows="8"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email-resume" class="col-xs-2 control-label">Send Resume to</label>
+                <div class="col-xs-6">
+                    <input type="email" class="form-control" id="email-resume" placeholder="Email address">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12" id="company-info">
+                    <h3>Company Information</h3>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="company-name" class="col-xs-2 control-label">Company Name</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="company-name" placeholder="Company Name">
+                </div>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label for="street" class="col-xs-2 control-label">Address</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="street" placeholder="Street Number">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="city" class="col-xs-2 control-label"></label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="city" placeholder="City">
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label for="state" class="col-xs-2 control-label"></label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="state" placeholder="State">
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label for="zip-code" class="col-xs-2 control-label"></label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="zip-code" placeholder="Zip Code">
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group">
+                <label for="company-email" class="col-xs-2 control-label">Company Email</label>
+                <div class="col-xs-6">
+                    <input type="email" class="form-control" id="company-email" placeholder="Company Email">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="company-url" class="col-xs-2 control-label">URL</label>
+                <div class="col-xs-6">
+                    <input type="email" class="form-control" id="company-url" placeholder="Company URL">
+                </div>
+            </div>
+
+            <!--Let user Preview info before publishing-->
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary publish-btn">Publish</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

@@ -1,43 +1,38 @@
 body {
   font-family: Georgia, Arial, Verdana, sans-serif;
 }
-/*.container {
-    outline: red solid 1px;
-}*/
-img {
-  display: block;
-}
-.hero {
-  position: relative;
-}
-.hero img {
+header {
   margin-top: 3%;
 }
-.overlay {
-  height: 150px;
-  position: absolute;
-  top: 150px;
-  left: 200px;
-  background: black;
-  opacity: 0.6;
-  color: #fff;
-  min-width: 35%;
+.post-duration {
+  margin-top: 3%;
+  line-height: 1.8em;
 }
-.overlay h1 {
-  word-spacing: 5px;
-  text-align: center;
-  font-size: 42px;
+.post-duration h4 {
+  line-height: 1.8em;
+}
+.post-steps {
   line-height: 100px;
 }
-.intro-text {
-  margin-top: 2%;
+.create-btn {
+  background: #333333 !important;
+  color: #ffcb33;
+  border-color: transparent !important;
 }
-.intro-text h4 {
-  line-height: 1.9em;
+.create-btn,
+.review-btn {
+  margin-right: 5%;
 }
-#job-name {
-  font-weight: bold;
+.publish-btn {
+  background: #333333;
+  border-color: transparent;
+  color: #ffcb33;
 }
-button {
-  background-color: green;
+.publish-btn:hover {
+  background: #333333;
+}
+#job-posting,
+#company-info {
+  color: orangered;
+  /*color: red;*/
 }
