@@ -9,7 +9,7 @@
     <!-- Latest compiled and minified CSS -->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
     <link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css" rel="stylesheet" />
-    <link href="jobsearch.min.css" rel="stylesheet" />
+    <link href="styles/jobsearch.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" id="job-form">
             <div class="form-group">
                 <label for="job-title" class="col-xs-2 control-label">Job Title</label>
                 <div class="col-xs-6">
@@ -46,54 +46,61 @@
             </div>
 
             <div class="form-group">
-                <label for="job-title" class="col-xs-2 control-label">Category</label>
+                <label for="job-id" class="col-xs-2 control-label">Job ID</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="job-id" placeholder="Job ID" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="job-category" class="col-xs-2 control-label">Category</label>
                 <div class="col-xs-10">
 
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optionsRadios" id="Qae" value="QualityAssuranceEngineer" checked>
+                            <input type="radio" name="job-category" id="Qae" value="QualityAssuranceEngineer">
                             Quality Assurance Engineer
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optionsRadios" id="Pm" value="ProjectManagement">
+                            <input type="radio" name="job-category" id="Pm" value="ProjectManagement">
                             Project Management
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optionsRadios" id="dev" value="SoftwareDeveloperEngineer">
+                            <input type="radio" name="job-category" id="dev" value="SoftwareDeveloperEngineer">
                             Software Developer Engineer
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optionsRadios" id="designer" value="Designer">
+                            <input type="radio" name="job-category" id="designer" value="Designer">
                             Designer
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optionsRadios" id="sdet" value="SDET">
+                            <input type="radio" name="job-category" id="sdet" value="SDET">
                             SDET
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optionsRadios" id="exec" value="BusinessExec">
+                            <input type="radio" name="job-category" id="exec" value="BusinessExec">
                             Business/Exec
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optionsRadios" id="dba" value="DatabaseAdministrator">
+                            <input type="radio" name="job-category" id="dba" value="DatabaseAdministrator">
                             Database Administrator
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optionsRadios" id="other" value="Other">
+                            <input type="radio" name="job-category" id="other" value="Other">
                             Other
                         </label>
                     </div>
@@ -101,16 +108,16 @@
             </div>
 
             <div class="form-group">
-                <label for="job-title" class="col-xs-2 control-label">Job Description</label>
+                <label for="job-description" class="col-xs-2 control-label">Job Description</label>
                 <div class="col-xs-8">
-                    <textarea class="form-control" rows="8"></textarea>
+                    <textarea class="form-control" rows="8" id="job-description" required></textarea>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="email-resume" class="col-xs-2 control-label">Send Resume to</label>
                 <div class="col-xs-6">
-                    <input type="email" class="form-control" id="email-resume" placeholder="Email address">
+                    <input type="email" class="form-control" id="email-resume" placeholder="Email address" required>
                 </div>
             </div>
 
@@ -123,37 +130,36 @@
             <div class="form-group">
                 <label for="company-name" class="col-xs-2 control-label">Company Name</label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="company-name" placeholder="Company Name">
+                    <input type="text" class="form-control" id="company-name" placeholder="Company Name" required>
                 </div>
             </div>
 
-            <br />
 
             <div class="form-group">
                 <label for="street" class="col-xs-2 control-label">Address</label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="street" placeholder="Street Number">
+                    <input type="text" class="form-control" id="street" placeholder="Street" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="city" class="col-xs-2 control-label"></label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="city" placeholder="City">
+                    <input type="text" class="form-control" id="city" placeholder="City" required>
                 </div>
             </div>
 
              <div class="form-group">
                 <label for="state" class="col-xs-2 control-label"></label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="state" placeholder="State">
+                    <input type="text" class="form-control" id="state" placeholder="State" required>
                 </div>
             </div>
 
              <div class="form-group">
                 <label for="zip-code" class="col-xs-2 control-label"></label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="zip-code" placeholder="Zip Code">
+                    <input type="text" class="form-control" id="zip-code" placeholder="Zip Code" required>
                 </div>
             </div>
 
@@ -161,14 +167,21 @@
             <div class="form-group">
                 <label for="company-email" class="col-xs-2 control-label">Company Email</label>
                 <div class="col-xs-6">
-                    <input type="email" class="form-control" id="company-email" placeholder="Company Email">
+                    <input type="email" class="form-control" id="company-email" placeholder="janedoe@blah.com" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone" class="col-xs-2 control-label">Phone</label>
+                <div class="col-xs-6">
+                    <input type="tel" class="form-control" id="phone" placeholder="012-345-6789" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="company-url" class="col-xs-2 control-label">URL</label>
                 <div class="col-xs-6">
-                    <input type="email" class="form-control" id="company-url" placeholder="Company URL">
+                    <input type="text" class="form-control" id="company-url" placeholder="www.blah.com" required>
                 </div>
             </div>
 
@@ -181,5 +194,15 @@
         </form>
 
     </div>
+    
+
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.3.min.js"></script>
+<script src="script/models.js"></script>
+    <script src="script/jobsearch.js"></script>
 </body>
 </html>
