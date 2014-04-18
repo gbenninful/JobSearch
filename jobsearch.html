@@ -41,16 +41,16 @@
             <div class="form-group">
                 <label for="job-title" class="col-xs-2 control-label">Job Title</label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="job-title" placeholder="Job Title" required>
+                    <input type="text" class="form-control" id="job-title" placeholder="Job Title" xrequired>
                 </div>
             </div>
 
-            <div class="form-group">
+           <!-- <div class="form-group">
                 <label for="job-id" class="col-xs-2 control-label">Job ID</label>
                 <div class="col-xs-6">
                     <input type="text" class="form-control" id="job-id" placeholder="Job ID" required>
                 </div>
-            </div>
+            </div>-->
 
             <div class="form-group">
                 <label for="job-category" class="col-xs-2 control-label">Category</label>
@@ -110,14 +110,14 @@
             <div class="form-group">
                 <label for="job-description" class="col-xs-2 control-label">Job Description</label>
                 <div class="col-xs-8">
-                    <textarea class="form-control" rows="8" id="job-description" required></textarea>
+                    <textarea class="form-control" rows="8" id="job-description" xrequired></textarea>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="email-resume" class="col-xs-2 control-label">Send Resume to</label>
                 <div class="col-xs-6">
-                    <input type="email" class="form-control" id="email-resume" placeholder="Email address" required>
+                    <input type="email" class="form-control" id="email-resume" placeholder="Email address" xrequired>
                 </div>
             </div>
 
@@ -130,36 +130,35 @@
             <div class="form-group">
                 <label for="company-name" class="col-xs-2 control-label">Company Name</label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="company-name" placeholder="Company Name" required>
+                    <input type="text" class="form-control" id="company-name" placeholder="Company Name" xrequired>
                 </div>
             </div>
-
 
             <div class="form-group">
                 <label for="street" class="col-xs-2 control-label">Address</label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="street" placeholder="Street" required>
+                    <input type="text" class="form-control" id="street" placeholder="Street" xrequired>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="city" class="col-xs-2 control-label"></label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="city" placeholder="City" required>
+                    <input type="text" class="form-control" id="city" placeholder="City" xrequired>
                 </div>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <label for="state" class="col-xs-2 control-label"></label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="state" placeholder="State" required>
+                    <input type="text" class="form-control" id="state" placeholder="State" xrequired>
                 </div>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <label for="zip-code" class="col-xs-2 control-label"></label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="zip-code" placeholder="Zip Code" required>
+                    <input type="text" class="form-control" id="zip-code" placeholder="Zip Code" xrequired>
                 </div>
             </div>
 
@@ -167,21 +166,21 @@
             <div class="form-group">
                 <label for="company-email" class="col-xs-2 control-label">Company Email</label>
                 <div class="col-xs-6">
-                    <input type="email" class="form-control" id="company-email" placeholder="janedoe@blah.com" required>
+                    <input type="email" class="form-control" id="company-email" placeholder="janedoe@blah.com" xrequired>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="phone" class="col-xs-2 control-label">Phone</label>
                 <div class="col-xs-6">
-                    <input type="tel" class="form-control" id="phone" placeholder="012-345-6789" required>
+                    <input type="tel" class="form-control" id="phone" placeholder="012-345-6789" xrequired>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="company-url" class="col-xs-2 control-label">URL</label>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="company-url" placeholder="www.blah.com" required>
+                    <input type="text" class="form-control" id="company-url" placeholder="www.blah.com" xrequired>
                 </div>
             </div>
 
@@ -194,15 +193,16 @@
         </form>
 
     </div>
-    
 
-     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.3.min.js"></script>
-<script src="script/models.js"></script>
+    <script src="script/models.js"></script>
     <script src="script/jobsearch.js"></script>
+    <script src="script/DataAccess.js"></script>
 </body>
 </html>

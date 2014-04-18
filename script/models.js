@@ -1,42 +1,41 @@
 ﻿"use strict";
 var JobSearchApp = JobSearchApp || {};
 
- JobSearchApp.Models =   (function () {
-   
+JobSearchApp.Models = (function () {
+
+    //COMPANY
+    var Company = function (options) {
+        options = options || {};
+        this.name = options.name || "";
+        this.companyEmail = options.companyEmail || "";
+        this.phone = options.phone || "";
+        this.url = options.url || ""
+    };
+
     //JOB POSTING
     var JobPosting = function (options) {
         options = options || {};
-        this.companyId = companyId,
-
+        this.companyId = options.companyId || "";
         this.jobTitle = options.jobTitle || "";
         this.category = options.category || "";
-        this.jobId = options.jobId || "";
         this.jobDescription = options.jobDescription || "";
         this.hrEmail = options.hrEmail || "";
     };
 
     //ADDRESS
-    var Address = function (street, city, state, zipCode) {
-        this.companyId = companyId,
-
-        this.street = street,
-        this.city = city,
-        this.state = state,
-        this.zipCode = zipCode
-    };
-
-    //COMPANY
-    var Company = function (name, companyEmail, phone, url) {
-        this.name = name,
-        this.companyEmail = companyEmail,
-        this.phone = phone,
-        this.url = url
+    var Address = function (options) {
+        options = options || {};
+        this.companyId = options.companyId || "";
+        this.street = options.street || "";
+        this.city = options.city || "";
+        this.state = options.state || "";
+        this.zipCode = options.zipCode || ""
     };
 
     return {
+        Company: Company,
         JobPosting: JobPosting,
-        Address: Address,
-        Company: Company
+        Address: Address
     };
 
 })();

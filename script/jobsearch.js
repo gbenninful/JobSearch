@@ -1,134 +1,88 @@
-﻿var JobSearchApp = JobSearchApp || {};
-
+﻿"use strict";
+var JobSearchApp = JobSearchApp || {};
 
 $(function () {
-    "use strict";
 
-    var MobileServiceClient = WindowsAzure.MobileServiceClient,
-        client = new MobileServiceClient("https://techjobs.azure-mobile.net/", "yMHpVaLVZGcfABWDybwMWbljdIMMSd81"),
-        jobPostingTable = client.getTable("jobPosting"),
-        addressTable = client.getTable("address"),
-        companyInfoTable = client.getTable("companyInfo");
+    //Company Info
+    var $compName = $("#company-name"),
+        $compEmail = $("#company-email"),
+        $compUrl = $("#company-url"),
+        $tel = $("#phone");
 
     //Job Posting
     var $title = $("#job-title"),
         $cat = $("input:radio[name=job-category]:checked"),
-        $jid = $("#job-id"),
         $description = $("#job-description"),
         $jobEmail = $("#email-resume");
 
-    //Company Info
-    var compName = $("#company-name"),
-        compEmail = $("#company-email"),
-        compUrl = $("#company-url"),
-        cid = $("#company-id"),
-        tel = $("#phone");
-
     //Company Address
-    var streetAd = $("#street"),
-        cityName = $("#city"),
-        stateName = $("#state"),
-        zip = $("#zip-code");
+    var $streetAd = $("#street"),
+        $cityName = $("#city"),
+        $stateName = $("#state"),
+        $zip = $("#zip-code");
 
     $("#job-form").submit(function (e) {
-
-        //var jobTitle = $title.val(),
-        //    cat = $cat.val(),
-        //    jobId = $jid.val(),
-        //    jobDescription = $description.val(),
-        //    hrEmail = $jobEmail.val();
-
-       
-
-
-
-        var name = compName.val(),
-            companyEmail = compEmail.val(),
-            url = compUrl.val(),
-            companyId = cid.val(),
-            phone = tel.val(),
-            street = streetAd.val(),
-            city = cityName.val(),
-            state = stateName.val(),
-            zipCode = zip.val();
-
-        //Insert Data into Tables
-
-        //Insert company first, so i can get the companyId to use to establish my foreign key on the job posting and the address
-
-         var cmp = {
-             name: name,
-             companyEmail: companyEmail,
-             url: url,
-             phone: phone
-         };
-
-         toastr.warning("About to save some data");
-
-         companyInfoTable.insert(cmp).then(function (savedCompany) {
-
-             //create job posting
-             postJob(savedCompany.id);
-
-             //save address
-             postAddress(savedCompany.id);
-
-         }, function (err) {
-             console.log(err);
-         })
-
-         function postJob(companyId) {
-
-             var jobPosting = new JobSearchApp.Models.JobPosting({
-                 jobTitle: $title.val(),
-                 category: $cat.val(),
-                 jobId: $jid.val(),
-                 jobDescription: $description.val(),
-                 hrEmail: $jobEmail.val(),
-                 companyId: companyId
-
-             });
-
-             jobPostingTable.insert(jobPosting).then(function (savedJob) {
-                 toastr.success("Your company data was Successful");
-                 console.log(savedJob);
-             });
-
-         }
-
-        function postAddress(companyId){
-
-             addressTable.insert({
-                        street: street,
-                        city: city,
-                        state: state,
-                        zipCode: zipCode,
-                        companyId: companyId
-                    }).then(function (savedAddress) {
-                            toastr.success("Your address was Successful");
-                            console.log(savedAddress);
-                    }, function (error) {
-                        toastr.error("Error saving your address " + error);
-                    });
-         }
         e.preventDefault();
+
+        postCompanyInfo();
+
+
+        //POSTING TO COMPANYINFO TABLE  (This post shd be first, to obtain companyId to use as foreign key)
+        function postCompanyInfo() {
+
+            var companyInfo = new JobSearchApp.Models.Company({
+                name: $compName.val(),
+                companyEmail: $compEmail.val(),
+                phone: $tel.val(),
+                url: $compUrl.val()
+            });
+
+            JobSearchApp.DataAccess.saveCompany(companyInfo, function (data) {
+                toastr.warning("Yaaaaaaaaaaay George called me back!!!!");
+            }, function (error) {
+                console.log(error);
+            });
+
+
+            //JobSearchApp.DataAccess.saveCompany(companyInfo);
+        };
+
+        //POSTING TO JOBPOSTING TABLE
+        function postJob(companyId) {
+            console.log("inside post job function with id" + companyId);
+            var jobPosting = new JobSearchApp.Models.JobPosting({
+                jobTitle: $title.val(),
+                category: $cat.val(),
+                jobDescription: $description.val(),
+                hrEmail: $jobEmail.val(),
+                companyId: companyId
+            });
+
+            console.log("Posting Job");
+
+        };
+
+        //POSTING TO ADDRESS TABLE
+        function postAddress(companyId) {
+
+            var addressPosting = new JobSearchApp.Models.Address({
+                street: $streetAd.val(),
+                city: $cityName.val(),
+                state: $stateName.val(),
+                zipCode: $zip.val(),
+                companyId: companyId
+            });
+
+            addressTable.insert(addressPosting).then(function (savedAddress) {
+                toastr.success("Your addresses were successful posted");
+                console.log(savedAddress);
+            }, function (error) {
+                toastr.error("Error saving your address " + error);
+                console.log("The error is " + error);
+            });
+        };
+
     });
-
-
 }());
 
-//authorInfoTable.insert({
-//    bookTitle: bookTitle,
-//    firstName: firstName,
-//    lastName: lastName,
-//    gender: gender
-//})
-//           .then(function (data) {
-//               toastr.success("Your post was successful");
-//           }, function (error) {
-//               toastr.error("Your error is " + error);
-//           });
 
-//clearForm();
-
-//e.preventDefault();
