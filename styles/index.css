@@ -56,3 +56,6 @@ img {
 .search-btn:hover {
   background: #333;
 }
+table#jobs {
+  margin-top: 3%;
+}
