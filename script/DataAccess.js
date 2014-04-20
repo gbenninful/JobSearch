@@ -65,10 +65,22 @@ JobSearchApp.DataAccess = (function () {
 
     }
 
+    function savedPostInfo() {
+
+        companyInfoTable.read().then(function (companies) {
+
+        }).then();
+
+        jobPostingTable.read().then().then();
+
+        addressTable.read().then().then();
+    }
+
     return {
         saveCompany: saveCompany,
         saveJob: saveJob,
-        saveAddress: saveAddress
+        saveAddress: saveAddress,
+        savedPostInfo: savedPostInfo
     };
 
 })();

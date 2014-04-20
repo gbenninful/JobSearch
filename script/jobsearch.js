@@ -102,7 +102,44 @@ $(function () {
 
         };
 
+        //DISPLAYING POSTED JOBS TO HOMEPAGE
+        //Call azures read() and what to do with returned data
+        
+        function showJobInfo() {
+
+        }
+
     });
 }());
 
 
+//function refreshAuthorInfo() {
+
+//    var query = authorInfoTable;
+//    query.read().then(function (authors) {
+//        var counter = 0;
+//        var listAuthorInfo = $.map(authors, function (author) {
+//            counter += 1;
+
+//            return $("<tr>")
+//                .attr("data-author-id", author.id)
+//                .append($("<td>").html(counter))
+//                .append($("<td>").html(author.bookTitle).attr("class", "row-title"))
+//                .append($("<td>").html(author.firstName).attr("class", "row-fname"))
+//                .append($("<td>").html(author.lastName).attr("class", "row-lname"))
+//                .append($("<td>").html(author.gender).attr("class", "row-gen"))
+//                .append($("<button class='btn btn-danger author-delete'>Delete</button>"))
+//                .append($("<button class='btn btn-warning author-edit'>Edit</button>"));
+//        });
+
+//        $("#authors").empty().append(listAuthorInfo);
+//        $("#summary").html("Total number of Books in George's Library: <strong>" + authors.length + '</strong>');
+//        $("#authors").prepend($("<th>Shelf</th> <th>Book Title</th> <th>First Name</th> <th>Last Name</th> <th>Gender</th>"));
+
+//    }).then($("#display").click(function () {
+
+//        refreshAuthorInfo();
+//    })
+
+//    );
+//}
