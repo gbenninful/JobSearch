@@ -4,13 +4,15 @@ var JobSearchApp = JobSearchApp || {};
 JobSearchApp.DataAccess = (function () {
 
     var MobileServiceClient = WindowsAzure.MobileServiceClient,
-    client = new MobileServiceClient("https://techjobs.azure-mobile.net/", "yMHpVaLVZGcfABWDybwMWbljdIMMSd81");
+    client = new MobileServiceClient("https://techjobs.azure-mobile.net/", "yMHpVaLVZGcfABWDybwMWbljdIMMSd81"),
+        jobPostingTable = client.getTable("jobPosting"),
+        companyInfoTable = client.getTable("companyInfo");
 
-    function saveCompany (comp, success, error) {
+
+    function saveCompany(comp, success, error) {
         //success = success || function () { };
         //error = error || function () { };
 
-        var companyInfoTable = client.getTable("companyInfo");
 
         companyInfoTable.insert(comp).done(function (data) {
             toastr.success("Success"); //Should this come after the success check below?
@@ -27,8 +29,7 @@ JobSearchApp.DataAccess = (function () {
         });
     }
 
-    function saveJob (job, success, error) {
-        var jobPostingTable = client.getTable("jobPosting");
+    function saveJob(job, success, error) {
 
         jobPostingTable.insert(job).done(function (savedJobData) {
             toastr.success("Your Job data was successfully posted");
@@ -46,7 +47,7 @@ JobSearchApp.DataAccess = (function () {
 
     }
 
-    function saveAddress (address, success, error) {
+    function saveAddress(address, success, error) {
         var addressTable = client.getTable("address");
 
         addressTable.insert(address).done(function (addressData) {
@@ -65,22 +66,48 @@ JobSearchApp.DataAccess = (function () {
 
     }
 
-    function savedPostInfo() {
+    function getJobs(success, error) {
 
-        companyInfoTable.read().then(function (companies) {
+     jobPostingTable.read().done(function (postedjobs) {
+         if (success) {
+             success(postedjobs);
+         }
 
-        }).then();
+     }, function (err) {
+         console.log(err);
+         if (error) {
+             error(err);
+         }
+     });
 
-        jobPostingTable.read().then().then();
+    }
 
-        addressTable.read().then().then();
+    function getCompanyById(companyId, success, error) {
+
+        companyInfoTable.where({ id: companyId }).read().done(function (results) { //really just one company in the array
+
+            if (success) {
+                //results will contain just one company
+                var company = results[0];
+
+                success(company);
+            }
+
+        }, function (err) {
+            console.log(err);
+            if (error) {
+                error(err);
+            }
+        });
+
     }
 
     return {
         saveCompany: saveCompany,
         saveJob: saveJob,
         saveAddress: saveAddress,
-        savedPostInfo: savedPostInfo
+        getJobs: getJobs,
+        getCompanyById: getCompanyById
     };
 
 })();
